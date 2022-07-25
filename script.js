@@ -16,12 +16,7 @@ formEle.onsubmit = function (e) {
   dayinputEle = document.getElementById("dayinput").value;
   monthinputEle = document.getElementById("monthinput").value;
   yersinputEle = document.getElementById("yersinput").value;
-  localStorage.setItem("sec", JSON.stringify(secinputEle));
-  localStorage.setItem("min", JSON.stringify(mininputEle));
-  localStorage.setItem("hour", JSON.stringify(hourinputEle));
-  localStorage.setItem("day", JSON.stringify(dayinputEle));
-  localStorage.setItem("mounth", JSON.stringify(monthinputEle));
-  localStorage.setItem("yers", JSON.stringify(yersinputEle));
+  
   sec = +secinputEle;
   min = +mininputEle;
   hour = +hourinputEle;
@@ -52,6 +47,14 @@ function main(currentTime) {
   if (secondsSinceLestRender < 1 / 1) return;
   lestRender = currentTime;
   sec += currentTime - currentTime + 1;
+  
+  localStorage.setItem("sec", JSON.stringify(sec));
+  localStorage.setItem("min", JSON.stringify(min));
+  localStorage.setItem("hour", JSON.stringify(hour));
+  localStorage.setItem("day", JSON.stringify(day));
+  localStorage.setItem("mounth", JSON.stringify(month));
+  localStorage.setItem("yers", JSON.stringify(yers));
+  
   if (sec === 60) {
     sec = 0;
     min += 1;
